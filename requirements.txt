@@ -1,0 +1,28 @@
+# FRIDAY — Advanced AI Voice Assistant
+# All packages are free and open-source. No API keys required.
+# Install: pip install -r requirements.txt
+# For GPU STT: pip install torch --index-url https://download.pytorch.org/whl/cu128
+
+# ── Core voice I/O ──────────────────────────────────────────────────────────
+SpeechRecognition>=3.10.0       # Google STT fallback (needs internet)
+sounddevice>=0.4.6              # Low-latency mic streaming
+numpy>=1.24.0                   # Required for audio processing and VAD
+
+# ── STT: GPU-accelerated local Whisper ──────────────────────────────────────
+faster-whisper>=1.0.0           # CTranslate2-based whisper (CUDA + CPU)
+# torch (CUDA build) — install separately:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# torch is needed for Silero VAD. Silero is downloaded automatically via torch.hub.
+
+# ── TTS ─────────────────────────────────────────────────────────────────────
+edge-tts>=6.1.0                 # Microsoft Edge TTS (free, no API key)
+# ffplay (ffmpeg) must be installed and on PATH for audio playback
+
+# ── Skills ───────────────────────────────────────────────────────────────────
+ddgs>=9.0                       # DuckDuckGo search (web_search skill)
+psutil>=5.9.0                   # System info skill (CPU, RAM, battery)
+pyperclip>=1.8.0                # Clipboard read/write skill
+
+# ── Optional ─────────────────────────────────────────────────────────────────
+# Pillow>=10.0.0                # Screenshots (skill_screenshot)
+# webrtcvad>=2.0.10             # Legacy VAD (replaced by Silero VAD)
